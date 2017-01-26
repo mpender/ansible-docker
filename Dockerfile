@@ -10,17 +10,6 @@ RUN systemctl mask dev-mqueue.mount dev-hugepages.mount \
     sys-kernel-debug.mount sys-fs-fuse-connections.mount \
     display-manager.service graphical.target systemd-logind.service
 
-#RUN yum -y swap -- remove fakesystemd -- install systemd systemd-libs
-#RUN yum -y update; yum clean all; \
-#(cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done); \
-#rm -f /lib/systemd/system/multi-user.target.wants/*;\
-#rm -f /etc/systemd/system/*.wants/*;\
-#rm -f /lib/systemd/system/local-fs.target.wants/*; \
-#rm -f /lib/systemd/system/sockets.target.wants/*udev*; \
-#rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
-#rm -f /lib/systemd/system/basic.target.wants/*;\
-#rm -f /lib/systemd/system/anaconda.target.wants/*;
-
 RUN yum -y install openssh-server sudo openssh-clients
 RUN sed -i 's/#PermitRootLogin no/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN ssh-keygen -q -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa && \
@@ -29,8 +18,9 @@ RUN ssh-keygen -q -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa && \
 RUN echo 'root:docker.io' | chpasswd
 RUN systemctl enable sshd.service
 
-RUN yum install initscripts -y
-
+RUN yum install -y initscripts \
+        net-tools \
+        nc 
 VOLUME [ "/sys/fs/cgroup" ]
 VOLUME ["/run"]
 
