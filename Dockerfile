@@ -20,11 +20,17 @@ RUN systemctl enable sshd.service
 
 RUN yum install -y initscripts \
         net-tools \
-        nc 
+        nc \
+        java
+
+RUN cd /opt && curl -O http://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-3.0.3.tar.gz
+RUN tar -xvf /opt/ansible-tower-setup-3.0.3.tar.gz
+RUN sed -i 's'
+
 VOLUME [ "/sys/fs/cgroup" ]
+
 VOLUME ["/run"]
 
-EXPOSE 22
+EXPOSE 22 80 443
 
 CMD ["/usr/sbin/init"]
-
