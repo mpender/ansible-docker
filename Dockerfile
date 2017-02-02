@@ -21,7 +21,8 @@ RUN systemctl enable sshd.service
 RUN yum install -y initscripts \
         net-tools \
         nc \
-        java
+        java \
+        git
 
 VOLUME [ "/sys/fs/cgroup" ]
 
