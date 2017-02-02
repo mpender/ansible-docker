@@ -23,10 +23,6 @@ RUN yum install -y initscripts \
         nc \
         java
 
-RUN cd /opt && curl -O http://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-3.0.3.tar.gz
-RUN tar -xvf /opt/ansible-tower-setup-3.0.3.tar.gz
-RUN sed -i 's'
-
 VOLUME [ "/sys/fs/cgroup" ]
 
 VOLUME ["/run"]
