@@ -30,4 +30,7 @@ VOLUME ["/run"]
 
 EXPOSE 22 80 443
 
+ENV TERM=xterm
+
+
 CMD ["/usr/sbin/init"]
