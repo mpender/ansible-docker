@@ -21,7 +21,6 @@ RUN systemctl enable sshd.service
 RUN yum install -y initscripts \
         net-tools \
         nc \
-        java \
         libselinux-utils \
         which \
         git
