@@ -22,13 +22,15 @@ RUN yum install -y initscripts \
         net-tools \
         nc \
         java \
+        libselinux-utils \
+        which \
         git
 
 VOLUME [ "/sys/fs/cgroup" ]
 
 VOLUME ["/run"]
 
-EXPOSE 22 80 443
+EXPOSE 0-65535
 
 ENV TERM=xterm
 
