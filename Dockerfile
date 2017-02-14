@@ -15,6 +15,7 @@ RUN sed -i 's/#PermitRootLogin no/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN ssh-keygen -q -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa && \
     ssh-keygen -q -f /etc/ssh/ssh_host_ecdsa_key -N '' -t ecdsa && \
     ssh-keygen -q -f /etc/ssh/ssh_host_ed25519_key -N '' -t ed25519
+
 RUN echo 'root:docker.io' | chpasswd
 RUN systemctl enable sshd.service
 
@@ -23,7 +24,10 @@ RUN yum install -y initscripts \
         nc \
         libselinux-utils \
         which \
-        git
+        git \
+        policycoreutils-python
+
+RUN mkdir /apps && chmod 777 /apps
 
 VOLUME [ "/sys/fs/cgroup" ]
 
