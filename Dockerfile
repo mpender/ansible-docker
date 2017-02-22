@@ -27,6 +27,7 @@ RUN yum install -y initscripts \
         git \
         policycoreutils-python \
         unzip \
+        cronie \
         tree
 
 RUN yum clean all
