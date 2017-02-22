@@ -25,7 +25,11 @@ RUN yum install -y initscripts \
         libselinux-utils \
         which \
         git \
-        policycoreutils-python
+        policycoreutils-python \
+        unzip \
+        tree
+
+RUN yum clean all
 
 RUN mkdir /apps && chmod 777 /apps
 
