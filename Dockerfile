@@ -38,7 +38,7 @@ VOLUME [ "/sys/fs/cgroup" ]
 
 VOLUME ["/run"]
 
-EXPOSE 0-65535
+EXPOSE 22 80 443 3306 8080 8888
 
 ENV TERM=xterm
 
