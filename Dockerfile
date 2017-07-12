@@ -19,6 +19,8 @@ RUN ssh-keygen -q -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa && \
 RUN echo 'root:docker.io' | chpasswd
 RUN systemctl enable sshd.service
 
+RUN touch /etc/hosts && chmod 511 /etc/hosts
+
 RUN yum install -y initscripts \
         net-tools \
         nc \
