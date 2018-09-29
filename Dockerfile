@@ -30,7 +30,8 @@ RUN yum install -y initscripts \
         policycoreutils-python \
         unzip \
         cronie \
-        tree
+        tree \
+        iperf3
 
 RUN yum clean all
 
