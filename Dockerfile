@@ -31,6 +31,7 @@ RUN yum install -y initscripts \
         unzip \
         cronie \
         tree \
+        python-jmespath \
         iperf3
 
 RUN yum clean all
