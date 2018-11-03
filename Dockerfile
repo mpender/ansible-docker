@@ -19,7 +19,7 @@ RUN ssh-keygen -q -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa && \
 RUN echo 'root:docker.io' | chpasswd
 RUN systemctl enable sshd.service
 
-RUN touch /etc/hosts && chmod 511 /etc/hosts
+RUN touch /etc/hosts && chmod 511 /etc/hosts && useradd gso-scan
 
 RUN yum install -y initscripts \
         net-tools \
@@ -37,8 +37,6 @@ RUN yum install -y initscripts \
 RUN yum clean all
 
 RUN mkdir /apps && chmod 777 /apps
-
-RUN useradd gso-scan
 
 VOLUME [ "/sys/fs/cgroup" ]
 
