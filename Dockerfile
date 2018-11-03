@@ -38,6 +38,8 @@ RUN yum clean all
 
 RUN mkdir /apps && chmod 777 /apps
 
+RUN useradd gso-scan
+
 VOLUME [ "/sys/fs/cgroup" ]
 
 VOLUME ["/run"]
