@@ -32,7 +32,8 @@ RUN yum install -y initscripts \
         cronie \
         tree \
         python-jmespath \
-        iperf3
+        iperf3 \
+        NetworkManager
 
 RUN yum clean all
 
