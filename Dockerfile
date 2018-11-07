@@ -33,7 +33,8 @@ RUN yum install -y initscripts \
         tree \
         python-jmespath \
         iperf3 \
-        NetworkManager
+        NetworkManager \ 
+        ntp
 
 RUN yum clean all
 
