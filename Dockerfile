@@ -27,6 +27,7 @@ RUN yum install -y initscripts \
         libselinux-utils \
         which \
         git \
+        gcc \
         policycoreutils-python \
         unzip \
         cronie \
