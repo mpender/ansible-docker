@@ -32,7 +32,8 @@ RUN yum install -y initscripts \
         unzip \
         cronie \
         tree \
-        python-jmespath \
+        python-jmespath \ 
+	python3 \
         iperf3 \
         NetworkManager \ 
         ntp \
